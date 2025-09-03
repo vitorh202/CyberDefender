@@ -28,7 +28,7 @@ const Buttonbar = () => {
       </Link>
 
       {/* Botão 2 */}
-      <Link href="/jogar" className="relative m-5 group transition-transform hover:scale-105">
+      <Link href="/sobre" className="relative m-5 group transition-transform hover:scale-105">
         <Image
           src="/saiba.png"
           alt="Botão 2"

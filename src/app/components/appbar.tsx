@@ -7,25 +7,65 @@ import Image from 'next/image';
 
 const AUDIO_URL = '/music.mp3';
 
+declare global {
+  interface Window {
+    __cyberdefender_audio?: HTMLAudioElement;
+  }
+}
+
 const Appbar = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setAudio(new Audio(AUDIO_URL));
+ 
+    if (typeof window === 'undefined') return;
+
+ 
+    let a = window.__cyberdefender_audio;
+    if (!a) {
+      a = new Audio(AUDIO_URL);
+      a.loop = true;   
+      a.volume = 0.5;  
+      window.__cyberdefender_audio = a;
     }
+
+    setAudio(a);
+    setIsPlaying(!a.paused);  
+
+     
+    const onPlay = () => setIsPlaying(true);
+    const onPause = () => setIsPlaying(false);
+    const onEnded = () => setIsPlaying(false);
+
+    a.addEventListener('play', onPlay);
+    a.addEventListener('pause', onPause);
+    a.addEventListener('ended', onEnded);
+
+     
+    return () => {
+      a!.removeEventListener('play', onPlay);
+      a!.removeEventListener('pause', onPause);
+      a!.removeEventListener('ended', onEnded);
+    };
   }, []);
 
-  const togglePlayPause = () => {
-    if (audio) {
-      if (isPlaying) {
-        audio.pause();
+  const togglePlayPause = async () => {
+    if (!audio) return;
+
+    try {
+      if (audio.paused) {
+         
+        await audio.play();
+         
       } else {
-        audio.play();
+        audio.pause();
+         
       }
-      setIsPlaying(!isPlaying);
+    } catch (err) {
+       
+      console.error('Não foi possível tocar o áudio:', err);
     }
   };
 
@@ -33,13 +73,13 @@ const Appbar = () => {
 
   return (
     <nav className={styles.appBar}>
-      {/* Linha superior */}
+       
       <div className={styles.line}>
         <div className={styles.lineGradient}></div>
       </div>
 
       <div className="flex w-full items-center justify-center px-4 relative">
-        {/* Botão hambúrguer só aparece no mobile */}
+         
         <button
           onClick={toggleMenu}
           className="md:hidden text-3xl text-[#15fc9e] focus:outline-none"
@@ -47,28 +87,28 @@ const Appbar = () => {
           ☰
         </button>
 
-        {/* Menu */}
+         
         <div
-            className={`
-              ${styles.navLinks}
-              ${isMenuOpen ? 'flex' : 'hidden'}
-              flex-col md:flex md:flex-row 
-              absolute md:relative top-full items-center
-              w-full md:w-auto p-2 md:p-0 
-              bg-black md:bg-transparent z-50
-              transition-all duration-300 ${isMenuOpen ? 'border border-[#15fc9e] rounded-lg md:border-0' : ''}
-            `}
-          >
+          className={`
+            ${styles.navLinks}
+            ${isMenuOpen ? 'flex' : 'hidden'}
+            flex-col md:flex md:flex-row 
+            absolute md:relative top-full items-center
+            w-full md:w-auto p-2 md:p-0 
+            bg-black md:bg-transparent z-50
+            transition-all duration-300 ${isMenuOpen ? 'border border-[#15fc9e] rounded-lg md:border-0' : ''}
+          `}
+        >
           <Link href="/"><span>Início</span></Link>
           <Link href="/jogar"><span>Jogar</span></Link>
           <Link href="/sobre"><span>Sobre</span></Link>
           <Link href="/aprenda"><span>Aprenda</span></Link>
-          <Link href="/creditos"><span>Créditos</span></Link> 
+          <Link href="/creditos"><span>Créditos</span></Link>
 
           <button onClick={togglePlayPause} className="md:ml-4">
             {isPlaying ? (
               <Image
-                src="/pause.png" 
+                src="/pause.png"
                 alt="Pause"
                 width={32}
                 height={32}
@@ -76,7 +116,7 @@ const Appbar = () => {
               />
             ) : (
               <Image
-                src="/play.png" 
+                src="/play.png"
                 alt="Play"
                 width={32}
                 height={32}
@@ -87,7 +127,7 @@ const Appbar = () => {
         </div>
       </div>
 
-      {/* Linha inferior */}
+       
       <div className={styles.line}>
         <div className={styles.lineGradient}></div>
       </div>
