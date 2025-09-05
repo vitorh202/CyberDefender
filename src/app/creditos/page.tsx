@@ -38,7 +38,7 @@ export default function Creditos() {
               <h2 className="text-xl font-semibold">Recursos e licenças</h2>
               <ul className="mt-2 space-y-2 text-sm">
                 <li><strong>Música do site:</strong> JNATHYN - Dioma [NCS Release]</li>
-                <li><strong>Imagens/Ilustrações:</strong> /public/images/* — Autores / Licenças listados aqui</li>
+                <li><strong>Imagens/Ilustrações:</strong> Imagens Públicas da internet.</li>
                 <li><strong>Fonte:</strong> 'Orbitron' — Google Fonts — licença OFL</li>
               </ul>
             </div>
