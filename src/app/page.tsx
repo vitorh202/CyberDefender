@@ -1,12 +1,13 @@
 import Appbar from "./components/appbar";
 import Buttonbar from "./components/buttonbar";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
        <Appbar /> 
        <div className="flex flex-col items-center py-8">
-          <img src={"logo.gif"} 
+          <Image src={"/logo.gif"} 
           alt="Logo CyberDefender"
           className="w-full max-w-xs h-auto" 
           width={300} 

@@ -1,12 +1,9 @@
 'use client';
 
 import Image from "next/image";
-import { useState } from "react";
 import Link from "next/link";
 
 const Buttonbar = () => {
-    const [hovered, setHovered] = useState<number | null>(null);
-
     return (
       <div className="flex w-full mt-10 px-4 items-center justify-center">
         {/* Botão 1 */}
