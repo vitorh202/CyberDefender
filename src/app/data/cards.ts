@@ -40,7 +40,7 @@ export interface Card {
         name: "Ataque de phishing",
         type: "Ataque",
         effect: "Phishing é um golpe digital onde os criminosos se passam por outra pessoa, como bancos, lojas ou até conhecidos. Eles enviam e-mails ou mensagens falsas com links que pedem seus dados pessoais, como senhas e números de cartão de crédito. Se você clicar, você pode entregar suas informações de forma voluntária, sem perceber que está sendo enganado.",
-        img: "/cards/Ataque de phishing.png",
+        img: "/cards/ataque de phishing.png",
     },
     {
         id: 6,
