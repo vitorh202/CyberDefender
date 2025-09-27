@@ -98,5 +98,25 @@ export interface Card {
         effect: "Scan de rede é uma técnica usada para descobrir quais dispositivos e serviços estão ativos em uma rede de computadores. Ajudando a mapear e identificar vulnerabilidades.",
         img: "/cards/Scan de rede.png",
     },
-
+    {
+        id: 14,
+        name: "Ataque bruteforce",
+        type: "Ataque",
+        effect: "O ataque brute force e realizado quando hackers tentam descobrir sua senha tentando varias possibilidades, milhares por segundo, limitar a quantidade de tentativas de acesso e a melhor forma de se previnir contra esse ataque.",
+        img: "/cards/Ataque bruteforce.png",
+    },
+    {
+        id: 15,
+        name: "Senha segura",
+        type: "Defesa",
+        effect: "A senha segura é a primeira e mais crucial linha de defesa contra a maioria das ameaças cibernéticas. Ela funciona como a chave mestra que protege toda a sua vida digital.",
+        img: "/cards/Senha segura.png",
+    },
+    {
+        id: 16,
+        name: "Randomware",
+        type: "Ataque",
+        effect: "O Ransomware e um vírus que sequestra os seus dados, deixando o seu sistema sem acesso até que uma quantia em dinheiro seja paga para que o criminoso devolva acesso ao seu sistema.",
+        img: "/cards/Randomware.png",
+    }
   ];

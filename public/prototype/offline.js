@@ -1,0 +1,26 @@
+﻿{
+	"version": 1758984450,
+	"fileList": [
+		"data.js",
+		"c2runtime.js",
+		"jquery-2.1.1.min.js",
+		"offlineClient.js",
+		"images/menu_bg-sheet0.png",
+		"images/menu_bg-sheet1.png",
+		"images/logo-sheet0.png",
+		"images/jogar-sheet0.png",
+		"images/comojogar-sheet0.png",
+		"images/cartas-sheet0.png",
+		"images/voltar-sheet0.png",
+		"images/cards-sheet0.png",
+		"images/cards-sheet1.png",
+		"images/cards-sheet2.png",
+		"images/setaback-sheet0.png",
+		"icon-16.png",
+		"icon-32.png",
+		"icon-114.png",
+		"icon-128.png",
+		"icon-256.png",
+		"loading-logo.png"
+	]
+}
